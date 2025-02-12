@@ -1,33 +1,34 @@
-hello
+IN ELKSTACK ubuntu vm
+Go to 
+http://localhost:5601 in web browser
 
-# 1 Install Wazuh
-
-sudo apt install curl
-
-```bash
-curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
+Login with this username and password
+```
+username: 
+elastic
+pass: 
+0olw6pqS78Su53xPwU*0
 ```
 
-Go to https://127.0.0.1:443 in web browser
-
-Login with provided username and password
-```
+In WEBSERVER ubuntu vm
+Go to http://localhost/DVWA
+login: 
 admin
-eqc*ztscrL.I5fICce4GU4k*7Q?YE7TL
-```
+password
 
+output {
+  elasticsearch {
+    hosts => ["https://localhost:9200"]
+    user => "elastic"
+    password => "0olw6pqS78Su53xPwU*0"
+    ssl => true
+    ssl_certificate_verification => false
+  }
+}
 
+elastic:0olw6pqS78Su53xPwU*0
 
-# 2 Install Agent
+https://tap.group-ib.com/api/v2/attacks/phishing_group
 
-
-amd64
-```bash
-wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.2-1_amd64.deb && sudo WAZUH_MANAGER='192.168.8.103' WAZUH_AGENT_GROUP='default' WAZUH_AGENT_NAME='client' dpkg -i ./wazuh-agent_4.9.2-1_amd64.deb
-
-sudo systemctl daemon-reload
-sudo systemctl enable wazuh-agent
-sudo systemctl start wazuh-agent
-
-```
-
+ps -ef | grep logstash
+sudo kill -9 <pid from prevoius command>
